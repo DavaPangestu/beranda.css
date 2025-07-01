@@ -1,0 +1,2050 @@
+/* ====================
+   GLOBAL STYLES & RESET
+   ==================== */
+:root {
+    /* Define elegant color palette */
+    --primary-color: #2c3e50; /* Dark Slate Blue - main branding color */
+    --secondary-color: #4CAF50; /* A slightly muted green for accents */
+    --accent-color: #b8860b; /* Muted Gold/Bronze for highlights */
+    --background-light: #f8f9fa; /* Off-white for background */
+    --background-card: #ffffff; /* Pure white for cards */
+    --text-dark: #343a40; /* Dark charcoal for main text */
+    --text-medium: #6c757d; /* Medium grey for secondary text */
+    --text-light: #adb5bd; /* Light grey for subtle text/placeholders */
+    --border-color: #e9ecef; /* Light grey for borders */
+    --shadow-light: rgba(0, 0, 0, 0.05); /* Lighter shadow for general elements */
+    --shadow-medium: rgba(0, 0, 0, 0.12); /* Medium shadow for interactive elements */
+    --shadow-deep: rgba(0, 0, 0, 0.20); /* Deeper shadow for prominent elements */
+
+    /* Re-mapping old variables for consistency */
+    --primary-blue: var(--primary-color);
+    --dark-blue: var(--primary-color);
+    --accent-green: var(--secondary-color);
+    --light-blue-bg: var(--background-light);
+    --light-gray-bg: var(--background-light);
+    --white: var(--background-card);
+    --border-light: var(--border-color);
+    --shadow-light: var(--shadow-light);
+    --shadow-medium: var(--shadow-medium);
+    --shadow-deep: var(--shadow-deep);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+}
+
+body {
+    background-color: var(--background-light);
+    padding: 20px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Main Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: var(--background-card);
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 6px 20px var(--shadow-light);
+    overflow: hidden; /* This keeps everything inside the main container boundary */
+}
+
+/* Section Header (Common style for 'Lowongan Populer', 'Rekomendasi', 'Kategori') */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 40px;
+    position: relative;
+}
+
+.section-header h2 {
+    font-size: 26px;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.section-header a {
+    font-size: 15px;
+    color: var(--primary-color);
+    font-weight: 600;
+    border: 2px solid var(--primary-color);
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.section-header a:hover {
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ====================
+   HEADER BAR (Presisi Berdasarkan Gambar)
+   ==================== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.menu-btn {
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 5px;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.menu-btn:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Search Bar in Header */
+.search-bar {
+    flex-grow: 1;
+    max-width: 600px;
+    position: relative;
+    flex-shrink: 1;
+    min-width: 250px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: 2px solid var(--border-color);
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+.search-bar input::placeholder {
+    color: var(--text-light);
+}
+
+.search-bar input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(44, 62, 80, 0.2);
+    background-color: var(--background-card);
+}
+
+/* Right Header Group (Pathway + Profile Icon) */
+.right-header-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+
+header h1 { /* This is now inside .right-header-group */
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--primary-color);
+    user-select: none;
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+}
+
+header h1:hover {
+    color: var(--accent-color);
+}
+
+.profile-wrapper {
+    position: relative;
+    flex-shrink: 0;
+}
+
+/* Updated .profile-pic for placeholder icon */
+.profile-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--background-light);
+    color: var(--text-medium);
+    font-size: 24px;
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.profile-pic:hover {
+    box-shadow: 0 0 15px rgba(44, 62, 80, 0.4), 0 0 0 4px rgba(44, 62, 80, 0.2);
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* ====================
+   POPOUT MENUS (Lebih Keren!)
+   ==================== */
+/* Backdrop (Overlay) for Popouts */
+.popout-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Darker overlay */
+    z-index: 999; /* Below popouts, above everything else */
+    opacity: 0;
+    visibility: hidden; /* Hidden by default */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popout-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Popout Menu Styles (General and specific improvements) */
+.popout-profile,
+.popout-menu,
+.popout-menu-detail {
+    position: absolute;
+    background-color: var(--background-card);
+    border-radius: 12px; /* Lebih bulat */
+    box-shadow: 0 15px 40px var(--shadow-deep); /* Shadow lebih dalam dan tegas */
+    z-index: 1000;
+    display: none; /* Controlled by JS */
+    opacity: 0;
+    transform: translateY(-20px); /* Efek slide yang lebih jauh */
+    transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Custom easing for smoother anim */
+    padding: 10px;
+    border: none; /* Border dihapus, sudah ada shadow kuat */
+    animation-fill-mode: forwards; /* Pastikan animasi tetap pada frame terakhir */
+}
+
+/* Animation for showing popouts */
+.popout-profile.show,
+.popout-menu.show,
+.popout-menu-detail.show {
+    display: block; /* Show the element first */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Positioning for specific popouts */
+.popout-profile {
+    top: 60px;
+    right: 0;
+    width: 180px;
+}
+
+.popout-menu {
+    top: 60px;
+    left: 0;
+    width: 200px;
+}
+
+.popout-menu-detail {
+    top: 60px;
+    right: 20px;
+    width: 250px;
+}
+
+/* List item styling inside popouts */
+.popout-profile ul,
+.popout-menu ul,
+.popout-menu-detail ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popout-profile li,
+.popout-menu li,
+.popout-menu-detail li {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 5px;
+}
+
+.popout-profile li:last-child,
+.popout-menu li:last-child,
+.popout-menu-detail li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.popout-profile a,
+.popout-menu a,
+.popout-menu-detail a {
+    display: block;
+    padding: 12px 15px;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-radius: 8px; /* Radius sedikit lebih besar untuk hover */
+}
+
+.popout-menu a {
+    color: var(--text-dark);
+}
+
+.popout-profile a:hover,
+.popout-menu a:hover,
+.popout-menu-detail a:hover {
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    transform: translateX(5px); /* Efek slide sedikit ke kanan saat hover */
+}
+
+
+/* ====================
+   HERO SECTION (Warna dan Pola Disesuaikan & Perbaikan Potongan)
+   ==================== */
+.hero-section {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: var(--background-card);
+    padding: 100px 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px var(--shadow-deep);
+    position: relative;
+    /* overflow: hidden; */ /* Remove overflow hidden from hero-section itself if you want pattern to extend */
+
+    /* Dynamic background pattern - adjusted for better coverage */
+    background-image: radial-gradient(circle at 100% 150%, var(--primary-color) 24%, var(--secondary-color) 25%, var(--secondary-color) 28%, var(--primary-color) 29%, var(--primary-color) 36%, var(--secondary-color) 36%, var(--secondary-color) 40%, transparent 40%, transparent),
+                      radial-gradient(circle at 0% 150%, var(--primary-color) 20%, var(--secondary-color) 21%, var(--secondary-color) 24%, var(--primary-color) 25%, var(--primary-color) 32%, var(--secondary-color) 32%, var(--secondary-color) 36%, transparent 36%, transparent),
+                      radial-gradient(circle at 100% 50%, var(--secondary-color) 10%, var(--primary-color) 11%, var(--primary-color) 22%, var(--secondary-color) 23%, var(--secondary-color) 24%, var(--primary-color) 25%, var(--primary-color) 30%, transparent 30%, transparent),
+                      radial-gradient(circle at 0% 50%, var(--secondary-color) 5%, var(--primary-color) 6%, var(--primary-color) 15%, var(--secondary-color) 16%, var(--secondary-color) 17%, var(--primary-color) 18%, var(--primary-color) 20%, transparent 20%, transparent),
+                      radial-gradient(circle at 100% 0%, var(--primary-color) 15%, var(--secondary-color) 16%, var(--secondary-color) 20%, var(--primary-color) 21%, var(--primary-color) 28%, var(--secondary-color) 29%, var(--secondary-color) 30%, transparent 30%, transparent),
+                      radial-gradient(circle at 0% 0%, var(--primary-color) 10%, var(--secondary-color) 11%, var(--secondary-color) 15%, var(--primary-color) 16%, var(--primary-color) 20%, var(--secondary-color) 21%, var(--secondary-color) 24%, transparent 24%, transparent);
+    background-size: 1500px 1500px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation: moveBackground 30s linear infinite;
+}
+
+@keyframes moveBackground {
+    from { background-position: 0% 0%; }
+    to { background-position: 100% 100%; }
+}
+
+.hero-content h2 {
+    font-size: 3.8em;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--background-card);
+    text-shadow: 2px 3px 6px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--background-card);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    position: relative;
+    z-index: 10;
+}
+
+.hero-search-bar input {
+    flex-grow: 1;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15em;
+    outline: none;
+    color: var(--text-dark);
+    background-color: transparent;
+}
+
+.hero-search-bar button {
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    padding: 15px 35px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-search-bar button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ====================
+   POPULAR JOB CARDS
+   ==================== */
+.job-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.job-card {
+    background-color: var(--background-card);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
+}
+
+.job-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 62, 80, 0.05);
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.job-card:hover::before {
+    opacity: 1;
+}
+
+.job-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.job-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+    background-color: var(--background-light);
+    border-color: var(--primary-color);
+}
+
+.job-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    padding: 5px;
+    background-color: var(--background-card);
+}
+
+.job-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.job-card p {
+    font-size: 15px;
+    color: var(--text-medium);
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.job-card .salary {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+/* ====================
+   JOB CATEGORIES
+   ==================== */
+.category-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.category-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.category-card {
+    background-color: var(--background-card);
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 3px 12px var(--shadow-light);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px var(--shadow-medium);
+    background-color: var(--background-light);
+    border-color: var(--primary-color);
+}
+
+.category-icon {
+    font-size: 3.2em;
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    transition: color 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+    color: var(--accent-color);
+}
+
+.category-card h4 {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.category-card p {
+    font-size: 0.95em;
+    color: var(--text-light);
+}
+
+/* ====================
+   RECOMMENDED JOB LIST
+   ==================== */
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.job-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--background-card);
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 3px 12px var(--shadow-light);
+    transition: all 0.25s ease;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.job-item:hover {
+    background-color: var(--background-light);
+    box-shadow: 0 10px 28px var(--shadow-medium);
+    transform: translateX(8px);
+    border-color: var(--primary-color);
+}
+
+.job-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 90%, rgba(44, 62, 80, 0.05) 0%, transparent 80%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.job-item:hover::after {
+    opacity: 1;
+}
+
+.job-item > * {
+    position: relative;
+    z-index: 1;
+}
+
+.job-icon {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    margin-right: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--background-card);
+    flex-shrink: 0;
+}
+
+.job-info {
+    flex-grow: 1;
+}
+
+.job-info h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.job-info p {
+    font-size: 14px;
+    color: var(--text-medium);
+}
+
+.job-item .salary {
+    margin-left: auto;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 15px;
+    white-space: nowrap;
+    min-width: 120px;
+    text-align: right;
+}
+
+/* ====================
+   FOOTER SECTION
+   ==================== */
+.main-footer {
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    padding: 50px 30px 30px;
+    margin-top: 60px;
+    border-radius: 15px;
+    box-shadow: 0 -8px 25px var(--shadow-medium);
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.footer-logo {
+    flex: 1 1 220px;
+    margin-bottom: 20px;
+}
+
+.footer-logo h3 {
+    font-size: 2.2em;
+    font-weight: 800;
+    color: var(--background-card);
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    font-size: 0.95em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-links {
+    flex: 1 1 160px;
+    margin-bottom: 20px;
+}
+
+.footer-links h4 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--background-card);
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.footer-social {
+    flex: 1 1 180px;
+    margin-bottom: 20px;
+}
+
+.footer-social h4 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--background-card);
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    color: var(--background-card);
+    font-size: 1.6em;
+    margin-right: 18px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:last-child {
+    margin-right: 0;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+    transform: translateY(-3px) scale(1.1);
+}
+
+
+/* ====================
+   RESPONSIVE ADJUSTMENTS (Comprehensive)
+   ==================== */
+@media (max-width: 992px) {
+    .container {
+        padding: 20px 25px;
+    }
+    .hero-section {
+        padding: 80px 25px;
+        background-size: 1200px 1200px;
+    }
+    .hero-content h2 {
+        font-size: 3.2em;
+    }
+    .hero-content p {
+        font-size: 1.15em;
+    }
+    .hero-search-bar {
+        max-width: 600px;
+    }
+    .job-cards {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 20px;
+    }
+    .category-cards {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 15px;
+    }
+    .job-item .salary {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    .container {
+        padding: 20px;
+    }
+    header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+    .menu-btn {
+        order: 1;
+        margin-right: 0;
+    }
+    .right-header-group {
+        order: 3;
+        margin-left: auto;
+        gap: 10px;
+    }
+    header h1 {
+        font-size: 20px;
+    }
+    
+    .search-bar {
+        order: 4;
+        flex-basis: 100%;
+        margin-top: 15px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .popout-profile,
+    .popout-menu,
+    .popout-menu-detail {
+        top: 65px;
+        left: 15px;
+        right: 15px;
+        width: auto;
+        max-width: calc(100% - 30px);
+    }
+    .popout-profile {
+        left: auto;
+        right: 15px;
+        width: 180px;
+    }
+    .popout-menu-detail {
+        top: 65px;
+        right: 15px;
+        left: auto;
+        width: auto;
+        max-width: calc(100% - 30px);
+    }
+
+    .hero-section {
+        padding: 60px 20px;
+        background-size: 1000px 1000px;
+    }
+    .hero-content h2 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .hero-search-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 5px;
+    }
+    .hero-search-bar input,
+    .hero-search-bar button {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .section-header h2 {
+        font-size: 22px;
+    }
+    .section-header a {
+        align-self: flex-end;
+    }
+    .job-cards {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+    }
+    .job-card {
+        padding: 20px;
+    }
+    .job-logo {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 15px;
+    }
+    .job-card h3 {
+        font-size: 17px;
+    }
+    .job-info h4 {
+        font-size: 16px;
+    }
+    .job-item .salary {
+        font-size: 14px;
+        min-width: 80px;
+    }
+    .category-cards {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+    .category-card {
+        padding: 18px 10px;
+    }
+    .category-icon {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+    }
+    .category-card h4 {
+        font-size: 1.1em;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-logo,
+    .footer-links,
+    .footer-social {
+        margin-bottom: 25px;
+    }
+    .social-icons {
+        justify-content: center;
+        display: flex;
+        gap: 15px;
+    }
+    .social-icons a {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 18px;
+    }
+    .menu-btn {
+        font-size: 24px;
+    }
+    .profile-pic {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+    .hero-section {
+        padding: 40px 15px;
+        background-size: 800px 800px;
+    }
+    .hero-content h2 {
+        font-size: 1.6em;
+    }
+    .hero-content p {
+        font-size: 0.9em;
+        margin-bottom: 25px;
+    }
+    .search-bar input {
+        padding: 10px 15px;
+        font-size: 14px;
+        border-radius: 25px;
+    }
+    .job-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .job-card {
+        padding: 18px;
+    }
+    .job-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+        gap: 10px;
+    }
+    .job-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .job-item .salary {
+        margin-left: 0;
+        align-self: flex-end;
+        font-size: 13px;
+    }
+    .category-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .category-card {
+        padding: 15px 10px;
+    }
+    .category-icon {
+        font-size: 2.0em;
+        margin-bottom: 10px;
+    }
+    .category-card h4 {
+        font-size: 0.95em;
+    }
+}
+
+/* Optional Scrollbar Styling for a more custom look */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-light);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/* ====================
+   MESSENGER POP-OUT FEATURE (Desain Chat Bubble)
+   ==================== */
+
+/* Floating Action Button (FAB) for Messenger */
+.messenger-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--secondary-color); /* Green accent color */
+    color: var(--background-card);
+    border: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1001; /* Higher than popouts */
+    transition: all 0.3s ease;
+    animation: pulseFab 2s infinite cubic-bezier(0.66, 0, 0.34, 1); /* Subtle pulse animation */
+}
+
+.messenger-fab:hover {
+    background-color: #3e8e41; /* Darker green on hover */
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    animation: none; /* Stop pulse on hover */
+}
+
+/* Badge notifikasi pesan baru */
+.messenger-fab .notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e74c3c; /* Merah untuk notifikasi */
+    color: white;
+    font-size: 0.8em;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--background-card); /* Border putih agar menonjol */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    animation: bounceNotification 0.6s infinite alternate; /* Animasi bouncing */
+}
+
+.notification-badge.hidden {
+    display: none;
+}
+
+@keyframes pulseFab {
+    0% { transform: scale(1); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); }
+    50% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); }
+    100% { transform: scale(1); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); }
+}
+
+@keyframes bounceNotification {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+
+/* ====================
+   POPOUT MENUS (Penyesuaian untuk Chat List & Chat Detail)
+   ==================== */
+/* Backdrop (Overlay) for Popouts */
+.popout-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popout-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Base style for ALL popout types (profile, main menu, detail menus, chat popups) */
+.popout-profile,
+.popout-menu,
+.popout-menu-detail {
+    position: absolute;
+    background-color: var(--background-card);
+    border-radius: 12px;
+    box-shadow: 0 15px 40px var(--shadow-deep);
+    z-index: 1000;
+    display: none; /* Controlled by JS */
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 10px;
+    border: none;
+    animation-fill-mode: forwards;
+}
+
+/* Class added by JS to show popouts */
+.popout-profile.show,
+.popout-menu.show,
+.popout-menu-detail.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific positioning for header-related popouts */
+.popout-profile {
+    top: 60px;
+    right: 0;
+    width: 180px;
+}
+
+.popout-menu { /* For hamburger icon menu */
+    top: 60px;
+    left: 0;
+    width: 200px;
+}
+
+/* Default positioning for popout-menu-detail (like Lowongan Saya, Bookmark, Pesan) */
+.popout-menu-detail {
+    top: 60px;
+    right: 20px;
+    width: 250px;
+    padding: 0; /* Override default popout padding for chat list/detail specific needs */
+}
+
+/* Styling for list items INSIDE popouts (common for profile, main menu, and detail popouts) */
+.popout-profile ul,
+.popout-menu ul,
+.popout-menu-detail ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popout-profile li,
+.popout-menu li,
+.popout-menu-detail li {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 5px;
+}
+
+.popout-profile li:last-child,
+.popout-menu li:last-child,
+.popout-menu-detail li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.popout-profile a,
+.popout-menu a,
+.popout-menu-detail a {
+    display: block;
+    padding: 12px 15px;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+}
+
+.popout-menu a {
+    color: var(--text-dark);
+}
+
+.popout-profile a:hover,
+.popout-menu a:hover,
+.popout-menu-detail a:hover {
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    transform: translateX(5px);
+}
+
+
+/* REVISI: Popout Pesan (Chat List Perusahaan) - Specific styles */
+.popout-menu-detail.chat-list-popup {
+    width: 320px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.chat-list-popup .popout-header {
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-weight: 600;
+}
+
+.chat-list-popup .popout-header h3 {
+    color: var(--background-card);
+    font-size: 1.1em;
+}
+
+.chat-list-popup .popout-header .back-to-menu-btn {
+    background: none;
+    border: none;
+    color: var(--background-card);
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.chat-list-popup .popout-header .back-to-menu-btn:hover {
+    color: var(--accent-color);
+    transform: translateX(-3px);
+}
+
+.chat-list-body {
+    padding: 5px 0;
+    max-height: 380px;
+    overflow-y: auto;
+    background-color: var(--background-card);
+}
+
+.empty-chat-list {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-medium);
+    font-size: 0.9em;
+}
+
+.chat-list-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.chat-list-item:hover {
+    background-color: var(--background-light);
+}
+
+.chat-list-item:last-child {
+    border-bottom: none;
+}
+
+.chat-company-logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.chat-list-item .chat-info {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.chat-list-item .chat-info h4 {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-list-item .chat-info .last-message {
+    font-size: 0.85em;
+    color: var(--text-medium);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-list-item .chat-info .last-message.unread {
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.chat-list-item .chat-time {
+    font-size: 0.75em;
+    color: var(--text-light);
+    flex-shrink: 0;
+}
+
+.chat-list-item .chat-time.unread-time {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+
+/* REVISI: Jendela Chat Detail (Popup chat sebenarnya) */
+.popout-menu-detail.chat-detail-popup {
+    width: 350px;
+    height: 450px;
+    bottom: 100px;
+    right: 30px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-detail-popup .messenger-header {
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.chat-detail-popup .messenger-header .back-to-chatlist-btn {
+    background: none;
+    border: none;
+    color: var(--background-card);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.chat-detail-popup .messenger-header .back-to-chatlist-btn:hover {
+    color: var(--accent-color);
+    transform: translateX(-3px);
+}
+
+.chat-detail-popup .messenger-header .chat-detail-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.chat-detail-popup .messenger-header .chat-detail-name {
+    color: var(--background-card);
+    font-size: 1.1em;
+    font-weight: 600;
+    flex-grow: 1;
+}
+
+.chat-detail-popup .messenger-header .close-messenger-btn {
+    margin-left: auto;
+}
+
+.chat-detail-popup .messenger-body {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: var(--background-light);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Message bubbles styling are same as messenger-popup's message-item */
+.message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message-item {
+    max-width: 85%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.message-item p {
+    font-size: 0.95em;
+    margin-bottom: 5px;
+}
+
+.message-item .timestamp {
+    font-size: 0.75em;
+    color: var(--text-light);
+    text-align: right;
+    display: block;
+}
+
+.message-item.received {
+    background-color: var(--background-card);
+    color: var(--text-dark);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.message-item.sent {
+    background-color: var(--secondary-color);
+    color: var(--background-card);
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.chat-detail-popup .messenger-footer {
+    background-color: var(--background-card);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.chat-detail-popup .message-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.95em;
+    outline: none;
+    margin-right: 10px;
+    transition: border-color 0.2s ease;
+}
+
+.chat-detail-popup .message-input:focus {
+    border-color: var(--primary-color);
+}
+
+.chat-detail-popup .send-message-btn {
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.chat-detail-popup .send-message-btn:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Messenger FAB (Floating Action Button) */
+.messenger-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: var(--background-card);
+    border: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    animation: pulseFab 2s infinite cubic-bezier(0.66, 0, 0.34, 1);
+}
+
+.messenger-fab:hover {
+    background-color: #3e8e41;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    animation: none;
+}
+
+/* Badge notifikasi pesan baru */
+.messenger-fab .notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 0.8em;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--background-card);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    animation: bounceNotification 0.6s infinite alternate;
+}
+
+.notification-badge.hidden {
+    display: none;
+}
+
+@keyframes pulseFab {
+    0% { transform: scale(1); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); }
+    50% { transform: scale(1.05); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); }
+    100% { transform: scale(1); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); }
+}
+
+@keyframes bounceNotification {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+
+/* Messenger popup umum (dari FAB) - ini akan lebih sederhana/intro saja */
+/* This is separate from chat-detail-popup, maybe it's a general inbox or quick message */
+.messenger-popup {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 450px;
+    background-color: var(--background-card);
+    border-radius: 12px;
+    box-shadow: 0 15px 40px var(--shadow-deep);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    visibility: hidden;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                visibility 0.3s ease;
+}
+
+.messenger-popup.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+}
+
+/* Messenger Header */
+.messenger-popup .messenger-header { /* Specific for the main messenger popup */
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.messenger-popup .messenger-header h3 {
+    color: var(--background-card);
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.messenger-popup .close-messenger-btn {
+    background: none;
+    border: none;
+    color: var(--background-card);
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.messenger-popup .close-messenger-btn:hover {
+    color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+/* Messenger Body (Chat Area) */
+.messenger-popup .messenger-body { /* Specific for the main messenger popup */
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: var(--background-light);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Message Bubbles (common styles for both messenger-popup and chat-detail-popup) */
+.message-list { /* This targets the container of messages */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message-item {
+    max-width: 85%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.message-item p {
+    font-size: 0.95em;
+    margin-bottom: 5px;
+}
+
+.message-item .timestamp {
+    font-size: 0.75em;
+    color: var(--text-light);
+    text-align: right;
+    display: block;
+}
+
+.message-item.received {
+    background-color: var(--background-card);
+    color: var(--text-dark);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.message-item.sent {
+    background-color: var(--secondary-color);
+    color: var(--background-card);
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+/* Messenger Footer (Input Area) */
+.messenger-popup .messenger-footer { /* Specific for the main messenger popup */
+    background-color: var(--background-card);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.messenger-popup .message-input { /* Specific for the main messenger popup */
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.95em;
+    outline: none;
+    margin-right: 10px;
+    transition: border-color 0.2s ease;
+}
+
+.messenger-popup .message-input:focus {
+    border-color: var(--primary-color);
+}
+
+.messenger-popup .send-message-btn { /* Specific for the main messenger popup */
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.messenger-popup .send-message-btn:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+
+/* Responsive adjustments for Messenger and Chat Popouts */
+@media (max-width: 768px) {
+    .messenger-fab {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    .messenger-fab .notification-badge {
+        width: 18px;
+        height: 18px;
+        font-size: 0.7em;
+        top: -3px;
+        right: -3px;
+    }
+
+    /* All Messenger Popups (main FAB popup, chat list, & chat detail) take more space */
+    .messenger-popup,
+    .popout-menu-detail.chat-list-popup,
+    .popout-menu-detail.chat-detail-popup {
+        width: 90%;
+        height: 80%;
+        bottom: 20px;
+        right: 5%;
+        left: 5%;
+        border-radius: 10px;
+    }
+
+    /* Header for all chat popups */
+    .messenger-popup .messenger-header,
+    .chat-list-popup .popout-header,
+    .chat-detail-popup .messenger-header {
+        padding: 12px 15px;
+    }
+    .messenger-popup .messenger-header h3,
+    .chat-list-popup .popout-header h3,
+    .chat-detail-popup .messenger-header h3 {
+        font-size: 1em;
+    }
+    .chat-company-logo, .chat-detail-logo {
+        width: 40px;
+        height: 40px;
+    }
+    .chat-list-item {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+    .chat-list-item .chat-info h4 {
+        font-size: 0.95em;
+    }
+    .message-item {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+    .messenger-popup .messenger-body,
+    .chat-detail-popup .messenger-body {
+        padding: 15px;
+    }
+    .messenger-popup .messenger-footer,
+    .chat-detail-popup .messenger-footer {
+        padding: 10px 15px;
+    }
+    .messenger-popup .message-input,
+    .chat-detail-popup .message-input {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+    .messenger-popup .send-message-btn,
+    .chat-detail-popup .send-message-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .messenger-popup,
+    .popout-menu-detail.chat-list-popup,
+    .popout-menu-detail.chat-detail-popup {
+        width: 95%;
+        height: 90%;
+        bottom: 10px;
+        right: 2.5%;
+        left: 2.5%;
+        border-radius: 8px;
+    }
+}
+
+/* ====================
+   ADDITIONAL STYLES FOR NEW PHP FILES
+   ==================== */
+
+/* General styling for new sections like profile, settings, add job, etc. */
+.user-profile-section,
+.account-settings-section,
+.add-job-section,
+.my-applications-section,
+.my-posted-jobs-section,
+.all-categories-section,
+.jobs-by-category-section,
+.recommended-jobs-list-section,
+.search-results-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Styling for generic cards (re-use profile-card style) */
+.settings-card,
+.job-form-card,
+.profile-card {
+    background-color: var(--background-card);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-light);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+    font-size: 1.05em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(44, 62, 80, 0.1);
+    outline: none;
+    background-color: var(--background-card);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Toggle Switch (for notifications, dark mode, 2FA) */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--text-light);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--background-card);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--secondary-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--secondary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Round sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Save Settings Button */
+.save-settings-btn,
+.submit-job-btn {
+    background-color: var(--primary-color);
+    color: var(--background-card);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1.05em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+    margin-top: 20px;
+}
+
+.save-settings-btn:hover,
+.submit-job-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Additional styles for lowongan_saya_1.php (Application Status) */
+.application-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.status-sedang-ditinjau {
+    background-color: #ffe0b2;
+    color: #e65100;
+}
+
+.status-wawancara-dijadwalkan {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+.status-diterima {
+    background-color: #b3e5fc;
+    color: #01579b;
+}
+
+.status-ditolak {
+    background-color: #ffcdd2;
+    color: #d32f2f;
+}
+
+/* Styles for lowongan_saya_2.php (Posted Job Status) */
+.add-new-job-btn {
+    background-color: var(--secondary-color);
+    color: var(--background-card);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-new-job-btn:hover {
+    background-color: #3e8e41;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.job-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.status-aktif {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+.status-ditutup {
+    background-color: #ffcdd2;
+    color: #d32f2f;
+}
+
+
+/* Optional Scrollbar Styling for a more custom look */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-light);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
